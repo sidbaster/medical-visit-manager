@@ -57,13 +57,21 @@ public class VisitDaoJdbc implements VisitDao {
             statement.setString(4, visit.getDiagnosis());
             statement.setBigDecimal(5, visit.getAmount());
 
-            ResultSet generatedKeys = statement.getGeneratedKeys();
+            int affectedRows = statement.executeUpdate();
 
-            if (generatedKeys.next()) {
-                visit.setVisitId(generatedKeys.getLong("visit_id"));
+            if (affectedRows == 0) {
+                throw new SQLException("Creating visit failed, no rows affected.");
             }
 
-            return statement.executeUpdate() > 0;
+            try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    visit.setVisitId(generatedKeys.getLong(1));
+                } else {
+                    throw new SQLException("Creating visit failed, no ID obtained.");
+                }
+            }
+
+            return true;
         } catch (SQLException e) {
             throw new DaoException(e);
         }
