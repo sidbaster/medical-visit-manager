@@ -13,6 +13,19 @@ public class Visit {
     private String diagnosis;
     private BigDecimal amount;
 
+    public Visit(LocalDate visitDate, String diagnosis, BigDecimal amount) {
+        this.visitDate = visitDate;
+        this.diagnosis = diagnosis;
+        this.amount = amount;
+    }
+
+    public Visit(long patientId, LocalDate visitDate, String diagnosis, BigDecimal amount) {
+        this.patientId = patientId;
+        this.visitDate = visitDate;
+        this.diagnosis = diagnosis;
+        this.amount = amount;
+    }
+
     public Visit(long visitId, long patientId, LocalDate visitDate, String diagnosis, BigDecimal amount) {
         this.visitId = visitId;
         this.patientId = patientId;

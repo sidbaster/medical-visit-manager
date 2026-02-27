@@ -8,9 +8,7 @@ public class Patient {
     private String lastName;
     private String pesel;
 
-
-    public Patient(long patientId, String firstName, String lastName, String pesel) {
-        this.patientId = patientId;
+    public Patient(String firstName, String lastName, String pesel) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.pesel = pesel;
