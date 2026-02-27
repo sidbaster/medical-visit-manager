@@ -8,7 +8,6 @@ Aplikacja konsolowa do zarządzania pacjentami i wizytami lekarskimi.
 - Java 8  
 - Czysty JDBC  
 - Baza danych: Firebird
-- 
 ---
 
 ## 📌 Funkcjonalności
