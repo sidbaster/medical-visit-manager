@@ -1,4 +1,4 @@
-package pl.medical.visit.manager.dao;
+package pl.medical.visit.manager.service;
 
 import pl.medical.visit.manager.model.Visit;
 
@@ -7,11 +7,11 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-public interface VisitDao {
-
-    List<Optional<Visit>> findByPatientId(Long patientId);
+public interface VisitService {
 
     boolean save(Visit visit);
+
+    List<Optional<Visit>> findByPatientId(Long patientId);
 
     BigDecimal sumAmountByDateBetween(LocalDate start, LocalDate end);
 }

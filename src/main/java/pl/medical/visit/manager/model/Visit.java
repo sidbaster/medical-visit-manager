@@ -1,19 +1,21 @@
 package pl.medical.visit.manager.model;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Visit {
     private long visitId;
-    private Patient patient;
-    private LocalDateTime visitDate;
+    private long patientId;
+    private LocalDate visitDate;
     private String diagnosis;
     private BigDecimal amount;
 
-    public Visit(long visitId, Patient patient, LocalDateTime visitDate, String diagnosis, BigDecimal amount) {
+    public Visit(long visitId, long patientId, LocalDate visitDate, String diagnosis, BigDecimal amount) {
         this.visitId = visitId;
-        this.patient = patient;
+        this.patientId = patientId;
         this.visitDate = visitDate;
         this.diagnosis = diagnosis;
         this.amount = amount;
@@ -30,12 +32,12 @@ public class Visit {
         this.visitId = visitId;
     }
 
-    public Patient getPatient() {
-        return patient;
+    public long getPatient() {
+        return patientId;
     }
 
-    public void setPatient(Patient patient) {
-        this.patient = patient;
+    public void setPatient(long patient) {
+        this.patientId = patient;
     }
 
     public String getDiagnosis() {
@@ -54,11 +56,11 @@ public class Visit {
         this.amount = amount;
     }
 
-    public LocalDateTime getVisitDate() {
+    public LocalDate getVisitDate() {
         return visitDate;
     }
 
-    public void setVisitDate(LocalDateTime visitDate) {
+    public void setVisitDate(LocalDate visitDate) {
         this.visitDate = visitDate;
     }
 
